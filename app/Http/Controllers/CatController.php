@@ -11,7 +11,19 @@ class CatController extends Controller
      */
     public function index()
     {
+        
+        // $url = 'http://localhost/css/style.css';
+        // $url = asset('css/style.css');
+        // dd($url);
+        // dd('hello cat index');
+       
+        // view('cat.index');資料夾cat
+        // route('cats.index'); routename cats
+        // $data=('');
+        // dd($data);
+
         return view('cat.index');
+        // return view('child');
     }
 
     /**
@@ -19,6 +31,8 @@ class CatController extends Controller
      */
     public function create()
     {
+        // $url = route('cats.store');
+        // dd($url);
         return view('cat.create');
     }
 
@@ -27,7 +41,11 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    //   dd($request);
+      $input = $request->except('_token');
+    //   dd($input);
+    //   dd('hello cat store');
+      return redirect()->route('cats.index');
     }
 
     /**
@@ -67,4 +85,5 @@ class CatController extends Controller
     {
         dd('hello cat excel');
     }
+
 }

@@ -30,3 +30,8 @@ Route::resource('cats', CatController::class);
 
 Route::get('/cats_excel', [CatController::class, 'excel'])->name('cats.excel');
 
+// child
+Route::get('/child', function () {
+    // return view('welcome');
+        return redirect('child');
+});

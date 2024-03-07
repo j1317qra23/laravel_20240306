@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h1>Hello CSS</h1>
+    <h1>Hello store</h1>
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
@@ -30,9 +30,8 @@
         </div>
     </nav>
 
-    <form action="{{ route('cats.store') }}" method="post">
-        @csrf
-        {{-- <form action="http://localhost/cats" method="post"> --}}
+    <form action="{{route('cats.store')}}" method="post">
+    {{-- <form action="http://localhost/cats" method="post"> --}}
         <div class="container mt-3">
             <h2>Cat Create</h2>
             <p>Lorem ipsum dolor sit amet.</p>
@@ -41,21 +40,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="name" id="" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col ">mobile</div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="text" name="mobile" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control">
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="submit">Button</button>
+                        <button class="btn btn-primary" type="button">Button</button>
                     </div>
                 </div>
             </div>
