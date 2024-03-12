@@ -1,0 +1,13 @@
+考題 4: 請解釋底下這兩行 Cron 指令所代表的意思?
+[user]$ crontab -l
+0 2 * * * php /var/www/html/mshop/releaseSession.php
+
+Answer:
+0 2 * * * 指令表示 
+每天凌晨2點會定時執行任務，而***表示每個可能的值 
+因此在這裡表示每月、每周、每天。
+
+php /var/www/html/mshop/releaseSession.php 指令表示 
+實際執行的命令，在這裡`php`表示要使用php執行下一個檔案，後面的
+`var/www/html/mshop/releaseSession.php`，則是要執行php檔案的
+路徑。這個檔案可能包含一些release的Session程式碼。

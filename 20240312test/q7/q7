@@ -1,0 +1,23 @@
+-- -- 新增表格
+-- CREATE TABLE SalesData (
+--     Store_Name VARCHAR(50),
+--     Sales INT,
+--     Txn_Date DATE
+-- );
+-- -- 新增數據
+-- INSERT INTO SalesData (Store_Name, Sales, Txn_Date)
+-- VALUES
+--     ('台中分社', 15000, '2022-01-05'),
+--     ('新竹分社', 35000, '2022-01-07'),
+--     ('高雄分社', 46000, '2022-01-08'),
+--     ('台北總社', 78000, '2022-01-08');
+A. 請下 SQL 語法得知總銷售金額(Sales 欄位加總)
+
+Answer:
+SELECT SUM(Sales) AS TotalSales 
+FROM SalesData;
+
+B. 請下 SQL 語法模糊比對 Store_Name 欄位中有“台北”字眼的 資料列
+SELECT `Store_Name` FROM `salesdata` 
+WHERE `Store_Name` LIKE '%台北%';
+
