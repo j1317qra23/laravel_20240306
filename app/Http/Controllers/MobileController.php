@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mobile;
 use Illuminate\Http\Request;
 
-class DogController extends Controller
+class MobileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= DB::select('SELECT * FROM dogs');
-        // dd('hello cat index');
-        return view('dog.index');
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class DogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Mobile $mobile)
     {
         //
     }
@@ -43,7 +42,7 @@ class DogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Mobile $mobile)
     {
         //
     }
@@ -51,7 +50,7 @@ class DogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Mobile $mobile)
     {
         //
     }
@@ -59,7 +58,7 @@ class DogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Mobile $mobile)
     {
         //
     }

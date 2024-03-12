@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\DogController;
-
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\MobileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,19 +19,27 @@ use App\Http\Controllers\DogController;
 
 Route::get('/', function () {
     // return view('welcome');
-        return redirect('/cats');
+   
+    return redirect('/cats');
 });
-//dog 小貓
 
-Route::resource('dogs', DogController::class);
-
-//cats 小貓
+// cats 小貓
+Route::get('/cats_excel', [CatController::class, 'excel'])->name('cats.excel');
 Route::resource('cats', CatController::class);
 
-Route::get('/cats_excel', [CatController::class, 'excel'])->name('cats.excel');
+// dogs 小狗
+Route::resource('dogs', DogController::class);
 
-// child
 Route::get('/child', function () {
-    // return view('welcome');
-        return redirect('child');
+    return view('child');
 });
+
+// 學生
+Route::resource('students', StudentController::class);
+
+// mobile
+Route::resource('mobiles', MobileController::class);
+
+
+
+

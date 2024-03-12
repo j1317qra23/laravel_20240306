@@ -52,6 +52,14 @@
                     <input type="text" name="mobile" id="" class="form-control">
                 </div>
             </div>
+            <div class="row">
+                <div class="col ">address</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="address" id="" class="form-control">
+                </div>
+            </div>
             <div class="row mt-3">
                 <div class="col">
                     <div class="d-grid gap-2">

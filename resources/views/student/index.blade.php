@@ -37,17 +37,18 @@
 
 
     <div class="container mt-3">
-        <h2>Cat List</h2>
+        <h2>Student List</h2>
         <p>Lorem ipsum dolor sit amet.</p>
         <div class="text-end">
-            <a href="{{ route('cats.create') }}">Add</a>
-            <a href="{{ route('cats.excel') }}">Excel</a>
+            <a href="{{ route('students.create') }}">Add</a>
         </div>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>id</th>
                     <th>name</th>
+                    <th>mobile_student_id</th>
+                    <th>mobile_mobile</th>
                     <th>operate</th>
                 </tr>
             </thead>
@@ -61,7 +62,13 @@
                             {{ $item->name }}
                         </td>
                         <td>
-                            <a href="{{ route('cats.edit', ['cat' => $item->id ]) }}">Edit</a> &nbsp;&nbsp;&nbsp;
+                            {{ $item->mobile->student_id }}
+                        </td>
+                        <td>
+                            {{ $item->mobile->mobile }}
+                        </td>
+                        <td>
+                            <a href="{{ route('students.edit', ['student' => $item->id ]) }}">Edit</a> &nbsp;&nbsp;&nbsp;
                             <a href="http://">Del</a>
                         </td>
                     </tr>

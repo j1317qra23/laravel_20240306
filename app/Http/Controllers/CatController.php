@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Cat;
 class CatController extends Controller
 {
     /**
@@ -11,19 +12,25 @@ class CatController extends Controller
      */
     public function index()
     {
-        
-        // $url = 'http://localhost/css/style.css';
-        // $url = asset('css/style.css');
-        // dd($url);
-        // dd('hello cat index');
        
-        // view('cat.index');資料夾cat
-        // route('cats.index'); routename cats
-        // $data=('');
+        // $url = route('cats.edit', ['id' => 1]); 
+        // $url = route('cats.edit', ['cat' => 1]);
+        // dd($url);
+        $data= DB::select('SELECT * FROM cats');
+       
         // dd($data);
 
-        return view('cat.index');
-        // return view('child');
+      
+            // DB::table('dogs')->insert(
+            //     [
+            //         'name' => 'kay',
+            //         'mobile' => '09123456789',
+            //             'address' => '09123456789'
+            //     ]
+            //     );
+           
+            $data = Cat::where('id', '>', 5)->orderByDesc('id')->get();
+            return view('cat.index', ['data' => $data]);
     }
 
     /**
@@ -31,8 +38,7 @@ class CatController extends Controller
      */
     public function create()
     {
-        // $url = route('cats.store');
-        // dd($url);
+      
         return view('cat.create');
     }
 
@@ -41,11 +47,22 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-    //   dd($request);
-      $input = $request->except('_token');
-    //   dd($input);
-    //   dd('hello cat store');
-      return redirect()->route('cats.index');
+        // dd($request);
+        $input = $request->except('_token');
+        // die();
+        // dd($input);
+        // dd('hello cat store');
+            DB::table('cats')->insert(
+                [
+                    'name' => $input['name'],
+                    'mobile' => $input['mobile'],
+                        'address' => '999',
+                        'created_at'=>now(),
+                        'updated_at'=>now()
+                ]
+                );
+           
+        return redirect()->route('cats.index');
     }
 
     /**
@@ -61,8 +78,7 @@ class CatController extends Controller
      */
     public function edit(string $id)
     {
-        dd($id);
-        return view('cat.edit');
+        dd("Hello $id");
     }
 
     /**
@@ -83,7 +99,8 @@ class CatController extends Controller
 
     public function excel()
     {
-        dd('hello cat excel');
+        dd('hello cats excel');
     }
 
+    
 }

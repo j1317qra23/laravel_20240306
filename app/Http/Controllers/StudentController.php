@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\student;
 use Illuminate\Http\Request;
 
-class DogController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data= DB::select('SELECT * FROM dogs');
-        // dd('hello cat index');
-        return view('dog.index');
+      
+        $data = Student::get();
+        return view('student.index', ['data' => $data]);
     }
 
     /**
@@ -35,7 +36,7 @@ class DogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(student $student)
     {
         //
     }
@@ -43,7 +44,7 @@ class DogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(student $student)
     {
         //
     }
@@ -51,7 +52,7 @@ class DogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, student $student)
     {
         //
     }
@@ -59,7 +60,7 @@ class DogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(student $student)
     {
         //
     }
